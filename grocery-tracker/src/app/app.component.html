@@ -1,0 +1,17 @@
+<h1> {{title}}</h1>
+
+<button type="button" name="asc" id="asc" (click)="sort('ASC')">Sort(A-Z)</button>
+<button type="button" name="dsc" id="dsc" (click)="sort('DSC')">Sort(Z-A)</button>
+
+<div [ngSwitch]="listType">
+
+  <ul *ngSwitchCase="'unordered'">
+    <li-item [cgrocItems] = "groceryItems" (itemClicked)="removeItem($event)"></li-item>
+  </ul>
+
+  <ol *ngSwitchCase="'ordered'">
+   <li-item [cgrocItems] = "groceryItems" (itemClicked)="removeItem($event)"></li-item>
+  </ol>
+</div>
+
+<p *ngIf = "groceryItems.length == 0"> No Items Today. Come back again later</p>

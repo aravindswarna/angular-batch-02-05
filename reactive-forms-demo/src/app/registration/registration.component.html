@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>Register Here...</h1>
+    <hr>
+    <form [formGroup]="userForm" name="userForm">
+
+        username: <input type="text" name="username" id="usernmId" formControlName="name">
+
+        <div *ngIf="userForm.controls['name'].invalid && 
+        userForm.controls['name'].dirty" style="color: red;">
+            Please Enter UserName
+        </div>
+
+        <div formArrayName="hobbies">
+            Hobbies:
+            <div *ngFor="let control of hobbies; index as i">
+                <input type="checkbox" [formControlName] = "i" name="hobbies" id="{{i}}">
+                {{hobbies[i].value}}
+            </div>
+
+            
+
+        </div>
+
+        <button type="submit" [disabled]="userForm.invalid">Submit</button>
+        <span *ngIf="userForm.invalid">Please Enter all fields</span>
+    </form>
+
+    {{userForm.value|json}}
+</div>

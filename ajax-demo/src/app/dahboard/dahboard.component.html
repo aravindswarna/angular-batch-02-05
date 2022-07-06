@@ -1,0 +1,22 @@
+<div class="container">
+    <h1>Welcome to Movie Manager</h1>
+    <hr>
+
+    <table class="table">
+        <thead>
+            <th>Id</th>
+            <th>name</th>
+            <th>genre</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let movie of movies">
+                <td>{{movie.id}}</td>
+                <td>{{movie.name}}</td>
+                <td>{{movie.genre}}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
